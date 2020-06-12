@@ -1,16 +1,28 @@
-const socketServer = require('socket.io');
-const http = require('http');
+const socketIO = require('socket.io');
 const express = require('express');
-const cors = require('cors');
+// const http = require('http');
+// const cors = require('cors');
+
 const Player = require('./lib/Player');
 const Game = require('./lib/Game');
 
-const app = express();
-app.use(cors);
-app.options('*', cors());
+// Dev dependencies
+// const app = express();
+// app.use(cors);
+// app.options('*', cors());
 
-var server = http.createServer(app);
-var io = socketServer(server);
+// var server = http.createServer(app);
+// var io = socketServer(server);
+
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const io = socketIO(server);
+
 
 var games = [];     // All ongoing games
 var players = {};   // All connected sockets
@@ -200,6 +212,6 @@ io.on('connection', (socket) => {
 
 });
 
-const port = 8000;
-io.listen(port);
-console.log('listening on port ', port);
+// const port = 8000;
+// io.listen(port);
+// console.log('listening on port ', port);
