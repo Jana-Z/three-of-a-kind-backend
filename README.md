@@ -1,6 +1,7 @@
 # ThreeOfAKind-Networked
 A networked version of [ThreeOfAKind](https://github.com/Jana-Z/threeOfAKind).
-
+Checkout the front end [here](https://github.com/Jana-Z/three-of-a-kind-frontend).  
+[Deployed version.](https://serene-plains-33592.herokuapp.com/)
 
 ## Technologies
 ### Frontend
@@ -19,6 +20,5 @@ In `./server` run `npm install --only=dev` and `npm run devStart`.
 ## TODO
 - [ ] Make UI nicer
 - [ ] Add penalty, when sb enters wrong set
-- [ ] deploy on Haruko
 - [ ] Error handling -> Maybe give the user feedback why actions failed?
 - [ ] Check for winner
